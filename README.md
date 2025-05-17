@@ -57,13 +57,13 @@ $(document).ready(function () {
 ### ⚙️ Options
 
 | Option         | Type    | Default | Description                                                                    |
-| :--------      | :------ | :------ | :------------------------------------------------:---------------------------- |
+| :--------      | :------ | :------ | :----------------------------------------------------------------------------- |
 | `htmlDir`      | string  | `auto`  | Set text direction: 'auto', 'ltr', or 'rtl'. <br>'auto' follows <html dir="">. |
-| `loop`         | Bool    | `false` | Enables continuous looping.                       |
-| `duration`     | Number  | `5000`  | Scroll animation duration in milliseconds.                  |
-| `direction`    | String  | `left`  | Scroll direction (`left` or `right`).             |
-| `gap`          | Number  | `0`     | Space between scrolling items in pixels.          |
-| `pauseOnHover` | Bool    | `false` | Pauses scrolling on hover.                        |
+| `loop`         | Bool    | `false` | Enables continuous looping.                                                    |
+| `duration`     | Number  | `5000`  | Scroll animation duration in milliseconds.                                     |
+| `direction`    | String  | `left`  | Scroll direction (`left` or `right`).                                          |
+| `gap`          | Number  | `0`     | Space between scrolling items in pixels.                                       |
+| `pauseOnHover` | Bool    | `false` | Pauses scrolling on hover.                                                     |
 
 ### 🔁 Plugin Events
 
