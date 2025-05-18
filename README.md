@@ -58,7 +58,7 @@ $(document).ready(function () {
 
 | Option         | Type    | Default | Description                                                                    |
 | :--------      | :------ | :------ | :----------------------------------------------------------------------------- |
-| `htmlDir`      | string  | `auto`  | Set text direction: 'auto', 'ltr', or 'rtl'. <br>'auto' follows <html dir="">. |
+| `htmlDir`      | string  | `auto`  | Set text direction: `auto`, `ltr`, or `rtl`. <br>`auto` follows <html dir="">. |
 | `loop`         | Bool    | `false` | Enables continuous looping.                                                    |
 | `duration`     | Number  | `5000`  | Scroll animation duration in milliseconds.                                     |
 | `direction`    | String  | `left`  | Scroll direction (`left` or `right`).                                          |
@@ -79,10 +79,10 @@ $('.mqscroller').trigger('refresh.mqscroller');
 ```
 
 ### 🧩 Notes
-Items must have class `.mqs-item`.
-The wrapper element should have class `.mqscroller`.
-The plugin auto-wraps items in a `.mqs-group`.
-Clones are marked with class `.cloned` and `aria-hidden="true"`.
+- Items must have class `.mqs-item`.
+- The wrapper element should have class `.mqscroller`.
+- The plugin auto-wraps items in a `.mqs-group`.
+- Clones are marked with class `.cloned` and `aria-hidden="true"`.
 
 ### ⚙️ Demo
 See a live demo on [CodePen](https://github.com/thomasvaidyakaran) or check out the examples folder.
