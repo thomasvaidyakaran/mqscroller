@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mqscroller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="../css/mqscroller.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #000000;
+            background-color: #ffffff;
+        }
+        section {
+            width: 100dvw;
+            height: 100dvh;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section :start -->
+    <section>
+        <div class="mqscroller">
+            <div class="mqs-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
+            <div class="mqs-item">Autem error impedit laborum.</div>
+        </div>
+    </section>
+    <!-- Section :end -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/mqscroller.min.js"></script>
+    <script>
+        $('.mqscroller').mqScroller({
+            htmlDir: 'ltr',
+            loop: true,
+            direction: 'left',
+            duration: 20000,
+            pauseOnHover: true,
+            gap: 30,
+            separator: '💎'
+        });
+    </script>
+</body>
+</html>

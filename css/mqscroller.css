@@ -1,0 +1,182 @@
+/* ===================================
+File: mqscroller.css
+Author: Thomas Vaidyakaran
+gitHub: https://github.com/thomasvaidyakaran/mqscroller
+Version: 1.0.0
+=================================== */
+
+.mqscroller {
+    width: 100%;
+    height: 0;
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: height 1s;
+}
+.mqscroller.mqs-loaded {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+}
+.mqscroller .mqs-group {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    will-change: transform;
+    -webkit-animation-duration: inherit;
+       -moz-animation-duration: inherit;
+         -o-animation-duration: inherit;
+            animation-duration: inherit;
+    -webkit-animation-timing-function: linear;
+       -moz-animation-timing-function: linear;
+         -o-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+       -moz-animation-iteration-count: infinite;
+         -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-play-state: paused;
+       -moz-animation-play-state: paused;
+         -o-animation-play-state: paused;
+            animation-play-state: paused;
+}
+.mqscroller .mqs-group .mqs-item {
+    width: auto;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+.mqscroller:not(.mqs-loop, .mqs-right) .mqs-group .mqs-item:last-child {
+    margin-right: 0 !important;
+}
+.mqscroller.mqs-right {
+    flex-direction: row-reverse;
+}
+.mqscroller.mqs-right .mqs-group {
+    flex-direction: row-reverse;
+}
+.mqscroller.mqs-right:not(.mqs-loop) .mqs-group .mqs-item:last-child {
+    margin-left: 0 !important;
+}
+
+/* Animation run/pause */
+.mqscroller.mqs-play .mqs-group {
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
+}
+.mqscroller.mqs-paused .mqs-group {
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+}
+
+/* Animation direction without loop */
+.mqscroller.mqs-left .mqs-group {
+    -webkit-animation-name: msLeft;
+            animation-name: msLeft;
+}
+.mqscroller.mqs-right .mqs-group {
+    -webkit-animation-name: msRight;
+            animation-name: msRight;
+}
+
+/* Animation direction with loop */
+.mqscroller.mqs-loop.mqs-left .mqs-group {
+    -webkit-animation-name: msLeftLoop;
+            animation-name: msLeftLoop;
+}
+.mqscroller.mqs-loop.mqs-right .mqs-group {
+    -webkit-animation-name: msRightLoop;
+            animation-name: msRightLoop;
+}
+
+.mqscroller.mqs-rtl .mqs-group {
+    direction: rtl;
+    -webkit-animation-direction: reverse;
+            animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mqs-group {
+        -webkit-animation-play-state: paused;
+                animation-play-state: paused;
+    }
+}
+
+@-webkit-keyframes msLeftLoop {
+    from {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+}
+@keyframes msLeftLoop {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes msRightLoop {
+    from {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+    to {
+        -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+    }
+}
+@keyframes msRightLoop{
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@-webkit-keyframes msLeft {
+    from {
+        -webkit-transform: translateX(var(--mqs-width));
+                transform: translateX(var(--mqs-width));
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+}
+@keyframes msLeft {
+    from {
+        transform: translateX(var(--mqs-width));
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes msRight {
+    from {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+    to {
+        -webkit-transform: translateX(var(--mqs-width));
+                transform: translateX(var(--mqs-width));
+    }
+}
+@keyframes msRight {
+    from {
+        transform: translateX(calc(-1 * var(--mqs-width)));
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
