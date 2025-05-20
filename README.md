@@ -66,7 +66,7 @@ $(document).ready(function () {
 | `direction`    | String  | `left`  | Scroll direction (`left` or `right`).                                            |
 | `gap`          | Number  | `0`     | Space between scrolling items in pixels.                                         |
 | `pauseOnHover` | Bool    | `false` | Pauses scrolling on hover.                                                       |
-| `separator`    | String  | ``      | Separator added between items (e.g., `•`, `|` or '💎').                          |
+| `separator`    | String  | `''`      | Separator added between items (e.g., `•`, `|` or '💎').                          |
 
 ### 🔁 Plugin Events
 
