@@ -1,6 +1,6 @@
 # 🌀 mqScroller jQuery Plugin
 
-**mqscroller** is a lightweight and customizable jQuery plugin for creating smooth, responsive marquee-style scrolling for text or images. It supports auto-looping, direction control, adjustable speed, and pause-on-hover.
+**mqscroller** is a lightweight and customizable jQuery plugin for creating smooth, responsive marquee-style scrolling for text or images. It supports auto-looping, direction control, adjustable speed, and pause-on-hover, item separators.
 
 > 👨‍💻 Made by [Thomas Vaidyakaran](https://github.com/thomasvaidyakaran)  
 > 🔗 GitHub: [https://github.com/thomasvaidyakaran/mqscroller](https://github.com/thomasvaidyakaran/mqscroller)
@@ -11,11 +11,11 @@
 
 - Smooth horizontal scrolling (left/right)
 - Auto-cloning for seamless looping
-- Adjustable scroll speed and gap between items
+- Adjustable scroll speed, separators and gap between items
 - Pause on hover
-- RTL support (`htmlDir:'rtl'`)
-- Customizable via options or HTML dir attribute
-- Lightweight and dependency-free (just jQuery)
+- Handles RTL automatically.
+- Optional pause on hover.
+- Supports manual reinitialization, destroy, and refresh events.
 
 ---
 
@@ -44,31 +44,34 @@
 #### Initialize Plugin
 ```javascript
 $(document).ready(function () { 
-    $('.mqscroller').mqscroller({ 
-        direction: 'left', 
-        duration: 5000, 
-        loop: true, 
-        gap: 10, 
-        pauseOnHover: true 
+    $('.mqscroller').mqscroller({
+        htmlDir: 'ltr',
+        loop: true,
+        direction: 'left',
+        duration: 20000,
+        pauseOnHover: true,
+        gap: 30,
+        separator: '💎'
     }); 
 });
 ```
 
-### ⚙️ Options
+### 🛠️ Options
 
-| Option         | Type    | Default | Description                                                                    |
-| :--------      | :------ | :------ | :----------------------------------------------------------------------------- |
+| Option         | Type    | Default | Description                                                                      |
+| :--------      | :------ | :------ | :------------------------------------------------------------------------------- |
 | `htmlDir`      | string  | `auto`  | Set text direction: `auto`, `ltr`, or `rtl`. <br>`auto` follows `<html dir="">`. |
-| `loop`         | Bool    | `false` | Enables continuous looping.                                                    |
-| `duration`     | Number  | `5000`  | Scroll animation duration in milliseconds.                                     |
-| `direction`    | String  | `left`  | Scroll direction (`left` or `right`).                                          |
-| `gap`          | Number  | `0`     | Space between scrolling items in pixels.                                       |
-| `pauseOnHover` | Bool    | `false` | Pauses scrolling on hover.                                                     |
+| `loop`         | Bool    | `false` | Enables continuous looping.                                                      |
+| `duration`     | Number  | `5000`  | Scroll animation duration in milliseconds.                                       |
+| `direction`    | String  | `left`  | Scroll direction (`left` or `right`).                                            |
+| `gap`          | Number  | `0`     | Space between scrolling items in pixels.                                         |
+| `pauseOnHover` | Bool    | `false` | Pauses scrolling on hover.                                                       |
+| `separator`    | String  | ``      | Separator added between items (e.g., `•`, `|` or '💎').                          |
 
 ### 🔁 Plugin Events
 
 ```javascript
-// Initialize
+// Initialize mqscroller
 $('.mqscroller').trigger('initialize.mqscroller');
 
 // Destroy mqscroller 
@@ -83,10 +86,26 @@ $('.mqscroller').trigger('refresh.mqscroller');
 - The wrapper element should have class `.mqscroller`.
 - The plugin auto-wraps items in a `.mqs-group`.
 - Clones are marked with class `.cloned` and `aria-hidden="true"`.
-
-### ⚙️ Demo
+<!--
+### 🖥️ Demo
 See a live demo on [CodePen](https://github.com/thomasvaidyakaran) or check out the examples folder.
+-->
 
+### 📁 File Structure
+```filetree
+📁 mqScroller/
+├── 📁 css/
+│   ├── 📄 mqscroller.css
+│   └── 📄 mqscroller.min.css
+├── 📁 examples/
+│   ├── 📄 image.html
+│   └── 📄 text.html
+├── 📁 js/
+│   ├── 📄 mqscroller.js
+│   └── 📄 mqscroller.min.js
+├── 📄 LICENSE
+└── 📄 README.md
+```
 
 ### 📝 License
 
