@@ -43,7 +43,7 @@
 #### Initialize Plugin
 ```javascript
 $(document).ready(function () { 
-    $('.mqscroller').mqscroller({
+    $('.mqscroller').mqScroller({
         htmlDir: 'ltr',
         loop: true,
         direction: 'left',
