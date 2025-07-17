@@ -2,7 +2,7 @@
 // File: mqscroller.js
 // Author: Thomas Vaidyakaran
 // gitHub: https://github.com/thomasvaidyakaran/mqscroller
-// Version: 1.0.0
+// Version: 1.0.1
 // **********************************************
 
 (function ($) {
@@ -27,6 +27,7 @@
             var mainClass = "mqscroller";
             var groupClass = "mqs-group";
             var itemClass = "mqs-item";
+            var separatorClass = "mqs-separator";
             var marquee = $(this);
             var viewportWidth = $(window).width();
 
@@ -41,9 +42,14 @@
                     /* Separator */
                     if ((settings.separator !== '')) {
                         if ((settings.loop === false)) {
-                            $('<div class="' + itemClass + '">' + settings.separator + '</div>').insertAfter('.' + itemClass + ':not(:last-child)');
-                        } else {
-                            $('<div class="' + itemClass + '">' + settings.separator + '</div>').insertAfter('.' + itemClass);
+                            marquee.find('.' + itemClass).not(':last-child').each(function () {
+                                $('<div class="' + itemClass + ' ' + separatorClass + '">' + settings.separator + '</div>').insertAfter($(this));
+                            });
+
+                        } else if ((settings.loop === true)) {
+                            marquee.find('.' + itemClass).each(function () {
+                                $('<div class="' + itemClass + ' ' + separatorClass + '">' + settings.separator + '</div>').insertAfter($(this));
+                            });
                         }
                     }
 

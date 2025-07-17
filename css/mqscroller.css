@@ -2,7 +2,7 @@
 File: mqscroller.css
 Author: Thomas Vaidyakaran
 gitHub: https://github.com/thomasvaidyakaran/mqscroller
-Version: 1.0.0
+Version: 1.0.1
 =================================== */
 
 .mqscroller {
@@ -12,7 +12,6 @@ Version: 1.0.0
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transition: height 1s;
 }
 .mqscroller.mqs-loaded {
     height: auto;
