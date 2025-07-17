@@ -9,10 +9,9 @@
 
 ### 🌟 Features
 
-- Smooth horizontal scrolling (left/right)
-- Auto-cloning for seamless looping
-- Adjustable scroll speed, separators and gap between items
-- Pause on hover
+- Smooth horizontal scrolling (left/right).
+- Auto-cloning for seamless looping.
+- Adjustable scroll speed, separators and gap between items.
 - Handles RTL automatically.
 - Optional pause on hover.
 - Supports manual reinitialization, destroy, and refresh events.
@@ -44,7 +43,7 @@
 #### Initialize Plugin
 ```javascript
 $(document).ready(function () { 
-    $('.mqscroller').mqscroller({
+    $('.mqscroller').mqScroller({
         htmlDir: 'ltr',
         loop: true,
         direction: 'left',
