@@ -2,7 +2,7 @@
 // File: mqscroller.js
 // Author: Thomas Vaidyakaran
 // gitHub: https://github.com/thomasvaidyakaran/mqscroller
-// Version: 1.0.1
+// Version: 1.0.2
 // **********************************************
 
 (function ($) {
@@ -29,11 +29,13 @@
             var itemClass = "mqs-item";
             var separatorClass = "mqs-separator";
             var marquee = $(this);
-            var viewportWidth = $(window).width();
 
 
             /* initialize mqScroller function */
             function initializeMarquee() {
+                var viewportWidth = $(window).width();
+                var screenWidth = window.screen.width;
+
                 if (!marquee.find('.' + groupClass).length && marquee.hasClass(mainClass)) {
 
                     /* Items group wrap */
@@ -69,7 +71,7 @@
                     if (settings.loop) {
                         var group = marquee.find('.' + groupClass);
                         var groupWidth = group.outerWidth();
-                        var repeatCount = settings.cloneCount || Math.ceil(viewportWidth / groupWidth);
+                        var repeatCount = settings.cloneCount || Math.ceil(screenWidth / groupWidth);
                         if (repeatCount === Infinity || repeatCount <= 0) {
                             repeatCount = 0;
                         }
@@ -137,7 +139,7 @@
                     var clones = [];
                     clones.push(marquee.find('.' + groupClass + ':first-child .' + itemClass).clone());
                     marquee.append(clones);
-                    marquee.find('.' + groupClass + ', .cloned').remove();
+                    marquee.find('.' + groupClass + ', .cloned , .' + separatorClass).remove();
                     marquee.removeClass('mqs-loaded mqs-play mqs-loop mqs-paused mqs-left mqs-right mqs-rtl');
                 }
             }
